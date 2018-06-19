@@ -43,21 +43,23 @@ class AttendanceService {
         
         if(!is_null($validation))
            return $validation;
-
-        $emp_id = base64_decode(urldecode($req->getAttribute('id')));
-        $type_id = strip_tags($req->getAttribute('tag'));
-        $datetime = date('Y-m-d H:i:s', strtotime($req->getAttribute('datetime')));
+        
+        //var_dump($req->getParams()); die();
+        $emp_id = strip_tags(base64_decode(urldecode($req->getParam('id'))));
+        $type_id = strip_tags($req->getParam('tag'));
+        $datetime = date('Y-m-d H:i:s', strtotime($req->getParam('datetime')));
         return (is_numeric($emp_id)) ? AttendanceDao::addAttendance($type_id, $emp_id, $datetime) : null;
     }
 
     function getEmployeeAttendance($req, $res){ 
-        $dtfrom = date('Y-m-d H:i:s', strip_tags($req->getAttribute('dtfrom')));
-        $dtto = date('Y-m-d H:i:s', strip_tags($req->getAttribute('dtto')));
-        //echo strtotime('2018-06-13 00:00:00'); die();
-        //$emp_id = strip_tags($req->getAttribute('emp_id'));
+        //$dtfrom = date('Y-m-d H:i:s', strip_tags($req->getAttribute('dtfrom')));
+        //$dtto = date('Y-m-d H:i:s', strip_tags($req->getAttribute('dtto')));
+        $dtfrom = date('Y-m-d', strip_tags($req->getAttribute('dtfrom')));
+        $dtto = date('Y-m-d', strip_tags($req->getAttribute('dtto')));
+ 
         $emp_id = base64_decode(urldecode($req->getAttribute('emp_id')));
-        //var_dump(urlencode(base64_encode(1))); die();
-        echo "From: ".date('M d, Y g:i A', strtotime($dtfrom))." To: ".date('M d, Y g:i A', strtotime($dtto))."<br>";
+
+        echo "From: ".date('M d, Y', strtotime($dtfrom))." To: ".date('M d, Y', strtotime($dtto))."<br>";
         return (is_numeric($emp_id)) ? AttendanceDao::getEmployeeAttendance($dtfrom, $dtto, $emp_id) : null;
     }
 

@@ -1,10 +1,66 @@
 {
 	"info": {
-		"_postman_id": "c6e101d1-ed5c-4f30-8376-4a5fd524eab3",
+		"_postman_id": "7591a470-28c1-4cb9-89eb-7692dd40b86d",
 		"name": "HRIS copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
+		{
+			"name": "Get ALL EMP Rec",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkzNjk2NTEsImV4cCI6MTUyOTQ1NjA1MSwianRpIjoic2pvVlhzaUxkVlE3bENkVE0zTHBFUzlFc2pnUzlaWDJibVpSSlg0U0hJViIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ.ISNgk4QykprDCLOch2n_oUN5ssWp6IyjoiOXyv9M2zk"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost/hris/public/employee",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"hris",
+						"public",
+						"employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Employee Record",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkzNjk2NTEsImV4cCI6MTUyOTQ1NjA1MSwianRpIjoic2pvVlhzaUxkVlE3bENkVE0zTHBFUzlFc2pnUzlaWDJibVpSSlg0U0hJViIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ.ISNgk4QykprDCLOch2n_oUN5ssWp6IyjoiOXyv9M2zk"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost/hris/public/employees/employeerecord/MQ%3D%3D",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"hris",
+						"public",
+						"employees",
+						"employeerecord",
+						"MQ%3D%3D"
+					]
+				},
+				"description": "Getting Employee Record"
+			},
+			"response": []
+		},
 		{
 			"name": "Adding Employee Record",
 			"request": {
@@ -12,7 +68,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkzMDE1ODgsImV4cCI6MTUyOTMwODc4OCwianRpIjoiM2JhcHpiODNiY2JWTjA3UWdtekpMdHFoUWVpZXdzc2Y5OG1nWFRLSlhqNyIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ.yCgV6uCWViuqkvbboII6UJ-hQHy-gEC8nIQlZDWAUU8"
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkzNjk2NTEsImV4cCI6MTUyOTQ1NjA1MSwianRpIjoic2pvVlhzaUxkVlE3bENkVE0zTHBFUzlFc2pnUzlaWDJibVpSSlg0U0hJViIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ.ISNgk4QykprDCLOch2n_oUN5ssWp6IyjoiOXyv9M2zk"
 					}
 				],
 				"body": {
@@ -55,55 +111,23 @@
 						},
 						{
 							"key": "middlename",
-							"value": "Reyes",
+							"value": "",
 							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "localhost/hris/public/employee/addemployee",
+					"raw": "localhost/hris/public/employees",
 					"host": [
 						"localhost"
 					],
 					"path": [
 						"hris",
 						"public",
-						"employee",
-						"addemployee"
+						"employees"
 					]
 				},
 				"description": "Adding Employee Record"
-			},
-			"response": []
-		},
-		{
-			"name": "Get Employee Record",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkyOTkzMDAsImV4cCI6MTUyOTMwNjUwMCwianRpIjoibmk4R0JGQ0NPZ05GNFZYd1NJNWk1UDhDUTFGRzE2b0lmSzNzR3B0eVNHUiIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ.AEOQLZfB5FG6dr5FILBr69AfxpwGx645G-_U-72egpY"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "localhost/hris/public/employee/employeerecord/MQ%3D%3D",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"hris",
-						"public",
-						"employee",
-						"employeerecord",
-						"MQ%3D%3D"
-					]
-				},
-				"description": "Getting Employee Record"
 			},
 			"response": []
 		},
@@ -117,7 +141,8 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkyOTgwOTksImV4cCI6MTUyOTMwNTI5OSwianRpIjoic0hTUWRQREJ2d3U2NWpqUDQ1Q3hoWVpEUHdjbjZlYXRwcUtRVGpPSmdrYyIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ._ri4MFk0I8VnUokBfXO9qW5vBz_2TSkWYcdOL0-M2po"
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkyOTgwOTksImV4cCI6MTUyOTMwNTI5OSwianRpIjoic0hTUWRQREJ2d3U2NWpqUDQ1Q3hoWVpEUHdjbjZlYXRwcUtRVGpPSmdrYyIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ._ri4MFk0I8VnUokBfXO9qW5vBz_2TSkWYcdOL0-M2po",
+						"disabled": true
 					}
 				],
 				"body": {
@@ -151,13 +176,95 @@
 			"response": []
 		},
 		{
+			"name": "Delete Employee",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkzNjk2NTEsImV4cCI6MTUyOTQ1NjA1MSwianRpIjoic2pvVlhzaUxkVlE3bENkVE0zTHBFUzlFc2pnUzlaWDJibVpSSlg0U0hJViIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ.ISNgk4QykprDCLOch2n_oUN5ssWp6IyjoiOXyv9M2zk"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost/hris/public/employees/employeerecord/Mg%3D%3D",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"hris",
+						"public",
+						"employees",
+						"employeerecord",
+						"Mg%3D%3D"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add EMP Attendance",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkzNjk2NTEsImV4cCI6MTUyOTQ1NjA1MSwianRpIjoic2pvVlhzaUxkVlE3bENkVE0zTHBFUzlFc2pnUzlaWDJibVpSSlg0U0hJViIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ.ISNgk4QykprDCLOch2n_oUN5ssWp6IyjoiOXyv9M2zk"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id\n",
+							"value": "MQ%3D%3D",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "tag",
+							"value": "1",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "datetime",
+							"value": "2018-06-18 13:00:00",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/hris/public/attendance/employeeattendance",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"hris",
+						"public",
+						"attendance",
+						"employeeattendance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Attendance All EMP",
 			"request": {
 				"method": "GET",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkzMDE1ODgsImV4cCI6MTUyOTMwODc4OCwianRpIjoiM2JhcHpiODNiY2JWTjA3UWdtekpMdHFoUWVpZXdzc2Y5OG1nWFRLSlhqNyIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ.yCgV6uCWViuqkvbboII6UJ-hQHy-gEC8nIQlZDWAUU8"
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkzNjk2NTEsImV4cCI6MTUyOTQ1NjA1MSwianRpIjoic2pvVlhzaUxkVlE3bENkVE0zTHBFUzlFc2pnUzlaWDJibVpSSlg0U0hJViIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ.ISNgk4QykprDCLOch2n_oUN5ssWp6IyjoiOXyv9M2zk"
 					}
 				],
 				"body": {
@@ -193,7 +300,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkzMzk2OTEsImV4cCI6MTUyOTQyNjA5MSwianRpIjoiUUIxbWZQY3pUQ1hOOGFoY2YyeGtDVnJINEJ6YnJDUmNzZVZWNTBRQ29aTiIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ.NmjTU1Gj8D5j8BBoKrOROtaUzMkmq1BA3JuASukLLqE"
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkzNjk2NTEsImV4cCI6MTUyOTQ1NjA1MSwianRpIjoic2pvVlhzaUxkVlE3bENkVE0zTHBFUzlFc2pnUzlaWDJibVpSSlg0U0hJViIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ.ISNgk4QykprDCLOch2n_oUN5ssWp6IyjoiOXyv9M2zk"
 					}
 				],
 				"body": {
@@ -226,7 +333,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkzMDE1ODgsImV4cCI6MTUyOTMwODc4OCwianRpIjoiM2JhcHpiODNiY2JWTjA3UWdtekpMdHFoUWVpZXdzc2Y5OG1nWFRLSlhqNyIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ.yCgV6uCWViuqkvbboII6UJ-hQHy-gEC8nIQlZDWAUU8"
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkzNjk2NTEsImV4cCI6MTUyOTQ1NjA1MSwianRpIjoic2pvVlhzaUxkVlE3bENkVE0zTHBFUzlFc2pnUzlaWDJibVpSSlg0U0hJViIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ.ISNgk4QykprDCLOch2n_oUN5ssWp6IyjoiOXyv9M2zk"
 					}
 				],
 				"body": {
@@ -234,7 +341,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "localhost/hris/public/attendance/employeeattendance/10",
+					"raw": "localhost/hris/public/attendance/employeeattendance/MQ%3D%3D",
 					"host": [
 						"localhost"
 					],
@@ -243,37 +350,7 @@
 						"public",
 						"attendance",
 						"employeeattendance",
-						"10"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Delete Employee",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkzMDE1ODgsImV4cCI6MTUyOTMwODc4OCwianRpIjoiM2JhcHpiODNiY2JWTjA3UWdtekpMdHFoUWVpZXdzc2Y5OG1nWFRLSlhqNyIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ.yCgV6uCWViuqkvbboII6UJ-hQHy-gEC8nIQlZDWAUU8"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "localhost/hris/public/employee/employeerecord/Mg%3D%3D",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"hris",
-						"public",
-						"employee",
-						"employeerecord",
-						"Mg%3D%3D"
+						"MQ%3D%3D"
 					]
 				}
 			},
@@ -315,68 +392,16 @@
 			"response": []
 		},
 		{
-			"name": "Add EMP Attendance",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded"
-					},
-					{
-						"key": "Authorization",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkyOTgwOTksImV4cCI6MTUyOTMwNTI5OSwianRpIjoic0hTUWRQREJ2d3U2NWpqUDQ1Q3hoWVpEUHdjbjZlYXRwcUtRVGpPSmdrYyIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ._ri4MFk0I8VnUokBfXO9qW5vBz_2TSkWYcdOL0-M2po"
-					}
-				],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "id\n",
-							"value": "MQ%3D%3D",
-							"type": "text"
-						},
-						{
-							"key": "tag",
-							"value": "MQ%3D%3D",
-							"type": "text"
-						},
-						{
-							"key": "datetime",
-							"value": "2018-06-18 13:00:00",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "localhost/hris/public/attendance/employeeattendance",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"hris",
-						"public",
-						"attendance",
-						"employeeattendance"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Get All AttendanceType",
 			"request": {
 				"method": "GET",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkzMDE1ODgsImV4cCI6MTUyOTMwODc4OCwianRpIjoiM2JhcHpiODNiY2JWTjA3UWdtekpMdHFoUWVpZXdzc2Y5OG1nWFRLSlhqNyIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ.yCgV6uCWViuqkvbboII6UJ-hQHy-gEC8nIQlZDWAUU8"
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkzNjk2NTEsImV4cCI6MTUyOTQ1NjA1MSwianRpIjoic2pvVlhzaUxkVlE3bENkVE0zTHBFUzlFc2pnUzlaWDJibVpSSlg0U0hJViIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ.ISNgk4QykprDCLOch2n_oUN5ssWp6IyjoiOXyv9M2zk"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
+				"body": {},
 				"url": {
 					"raw": "localhost/hris/public/attendancetype",
 					"host": [
@@ -386,34 +411,6 @@
 						"hris",
 						"public",
 						"attendancetype"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get ALL EMP Rec",
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MjkzMDE1ODgsImV4cCI6MTUyOTMwODc4OCwianRpIjoiM2JhcHpiODNiY2JWTjA3UWdtekpMdHFoUWVpZXdzc2Y5OG1nWFRLSlhqNyIsInN1YiI6Im5laWxAaW52ZW50by5pbyIsImlzcyI6ImdSMjNabzFFWDBrOGJQT2QifQ.yCgV6uCWViuqkvbboII6UJ-hQHy-gEC8nIQlZDWAUU8"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "localhost/hris/public/employee",
-					"host": [
-						"localhost"
-					],
-					"path": [
-						"hris",
-						"public",
-						"employee"
 					]
 				}
 			},

@@ -12,62 +12,67 @@ class EmployeeService {
       
     }
 
-    function checkEmailExistsOnAddEmployee($email){
-        return EmployeeModel::where('email', '=', strip_tags($email))->where('is_active', '=', 1)->first();
-    }
-
     function getAllEmployee($req, $res){
         $accstat = strip_tags($req->getAttribute('accstat'));
-        (empty($accstat)) ? $accstat = "is_active IS NOT NULL" : $accstat = "is_active = ".$accstat;
-        return EmployeeModel::whereRaw($accstat)->orderBy('created_at', 'DESC')->get();
+        (!empty($accstat)) ? 
+            ($accstat==1) ?
+                $accstat = "is_active = ".$accstat : $accstat = "is_active = 0" : $accstat = "is_active IS NOT NULL" ;
+
+        return EmployeeDao::getAllEmployee($accstat);
     }
 
-    function deleteemployee($req, $res){
+    function deleteEmployee($req, $res){
         $emp_id = base64_decode(urldecode($req->getAttribute('str')));
-        return (is_numeric($emp_id)) ? EmployeeModel::where('id', $emp_id)->delete() : null;
+
+        return (is_numeric($emp_id)) ? EmployeeDao::deleteEmployee($emp_id) : null;
     }
 
     function updateEmployee($req, $res){
-
-    }
-
-    function addEmployee($req, $res){
         $validation = Validator::validate($req, [
             'firstname' => v::notEmpty()->alpha(),
             'lastname' => v::notEmpty()->alpha(),
-            'middlename' => v::notEmpty()->alpha(),
+            'password' => v::noWhitespace()->notEmpty()->length(6, null),
+            'email' => v::noWhitespace()->notEmpty()->email(),
+        ]);    
+    }
+
+    function addEmployee($req, $res){
+       
+        $validation = Validator::validate($req, [
+            'firstname' => v::notEmpty()->alpha(),
+            'lastname' => v::notEmpty()->alpha(),
             'password' => v::noWhitespace()->notEmpty()->length(6, null),
             'email' => v::noWhitespace()->notEmpty()->email(),
         ]); 
-        
+
         if(!is_null($validation))
            return $res->withJSON($validation);
         
-        $userexists = EmployeeService::checkEmailExistsOnAddEmployee(strip_tags($req->getParam('email')));
-        
+        $userexists = EmployeeDao::checkEmailExistsOnAddEmployee(strip_tags($req->getParam('email')));
+
         if(!is_null($userexists)){
-            return array('status' => 'val_error', 'msg' => 'Email Already Exists!', 'tk' => ''); 
+            return array('status' => false, 'msg' => 'Email Already Exists!'); 
         }
         else{
-            $qry = EmployeeModel::firstOrcreate([
-                                'first_name' => strip_tags($req->getParam('firstname')), 
-                                'last_name' => strip_tags($req->getParam('lastname')),
-                                'middle_name' => strip_tags($req->getParam('middlename')),
-                                'phone' => strip_tags($req->getParam('phone')),
-                                'email' => strip_tags($req->getParam('email')),
-                                'address' => strip_tags($req->getParam('address')),
-                                'pos_title' => strip_tags($req->getParam('postitle')),
-                                'password' => password_hash(strip_tags($req->getParam('password')), PASSWORD_DEFAULT)
-                                ])->save();
-
-            return ($qry) ? array('status' => 'success', 'msg' => $qry) : array('status' => 'failed', 'msg'=> 'Failed to Create New Employee!');
+      
+            $arr = [
+                'first_name' => strip_tags($req->getParam('firstname')), 
+                'last_name' => strip_tags($req->getParam('lastname')),
+                'middle_name' => strip_tags($req->getParam('middlename')),
+                'phone' => strip_tags($req->getParam('phone')),
+                'email' => strip_tags($req->getParam('email')),
+                'address' => strip_tags($req->getParam('address')),
+                'pos_title' => strip_tags($req->getParam('postitle')),
+                'password' => password_hash(strip_tags($req->getParam('password')), PASSWORD_DEFAULT),
+                'is_active' => 1
+            ];
+            
+            return (EmployeeDao::addEmployee($arr)) ? array('status' => true, 'msg' => "Employee Added Successfully!") : array('status' => false, 'msg'=> 'Failed to Create New Employee!');
         }
     }
 
     function getEmployee($req, $res, $args){
-        //echo urlencode(base64_encode(1)); die();
         $emp_id = base64_decode(urldecode($req->getAttribute('str')));
-        //var_dump($emp_id); die();
-        return (is_numeric($emp_id)) ? EmployeeModel::where('id', $emp_id)->first() : null;
+        return (is_numeric($emp_id)) ? EmployeeDao::getEmployee($emp_id) : null;
     }
 }

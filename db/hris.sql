@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2018 at 07:35 PM
--- Server version: 10.1.32-MariaDB
--- PHP Version: 7.2.5
+-- Generation Time: Jun 19, 2018 at 12:26 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -42,9 +42,19 @@ CREATE TABLE `attendance` (
 --
 
 INSERT INTO `attendance` (`id`, `type_id`, `datetime`, `emp_id`, `created_at`, `updated_at`) VALUES
-(1, 1, '2018-06-06 09:00:00', 1, '2018-06-11 00:00:00', '2018-06-11 00:00:00'),
-(8, 8, '2018-06-06 17:59:00', 1, '2018-06-11 00:00:00', '2018-06-11 00:00:00'),
-(9, 1, '2018-06-07 09:00:00', 1, '2018-06-11 00:00:00', '2018-06-11 00:00:00');
+(8, 1, '2018-06-06 09:00:00', 1, '2018-06-11 00:00:00', '2018-06-11 00:00:00'),
+(9, 2, '2018-06-06 10:00:00', 1, '2018-06-11 00:00:00', '2018-06-11 00:00:00'),
+(10, 3, '2018-06-06 10:15:00', 1, '2018-06-11 00:00:00', '2018-06-11 00:00:00'),
+(11, 2, '2018-06-07 12:00:00', 1, '2018-06-11 00:00:00', '2018-06-11 00:00:00'),
+(12, 3, '2018-06-08 13:00:00', 1, '2018-06-11 00:00:00', '2018-06-11 00:00:00'),
+(13, 2, '2018-06-09 15:00:00', 1, '2018-06-11 00:00:00', '2018-06-11 00:00:00'),
+(14, 3, '2018-06-09 15:15:00', 1, '2018-06-11 00:00:00', '2018-06-11 00:00:00'),
+(15, 4, '2018-06-18 18:00:00', 1, '2018-06-19 14:32:30', '2018-06-19 14:32:30'),
+(16, 1, '2018-06-19 09:00:00', 1, '2018-06-19 14:32:30', '2018-06-19 14:32:30'),
+(17, 2, '2018-06-19 10:00:00', 1, '2018-06-11 00:00:00', '2018-06-11 00:00:00'),
+(18, 4, '2018-06-19 18:00:00', 1, '2018-06-19 14:32:30', '2018-06-19 14:32:30'),
+(19, 3, '2018-06-19 10:15:00', 1, '2018-06-11 00:00:00', '2018-06-11 00:00:00'),
+(21, 1, '2018-06-20 09:00:00', 1, '2018-06-19 14:32:30', '2018-06-19 14:32:30');
 
 -- --------------------------------------------------------
 
@@ -65,16 +75,10 @@ CREATE TABLE `attendancetype` (
 --
 
 INSERT INTO `attendancetype` (`id`, `code`, `description`, `created_at`, `updated_at`) VALUES
-(1, 'TI', 'Time In', '2018-06-09 00:00:00', '0000-00-00 00:00:00'),
-(2, 'BO1', 'Breakout 1', NULL, NULL),
-(3, 'BI1', 'Breakin 2', NULL, NULL),
-(4, 'LO', 'Lunchout', NULL, NULL),
-(5, 'LI', 'Lunchin', NULL, NULL),
-(6, 'BO2', 'Breakout 2', NULL, NULL),
-(7, 'BI2', 'Breakin 2', NULL, NULL),
-(8, 'TO', 'Timeout', NULL, NULL),
-(9, 'OT-S', 'Overtime Start', NULL, NULL),
-(10, 'OT-F', 'Overtime Finish', NULL, NULL);
+(1, 'TI', 'Time In', '2018-06-09 00:00:00', '2018-06-18 00:00:00'),
+(2, 'BO', 'Break Out', '2018-06-18 00:00:00', '2018-06-18 00:00:00'),
+(3, 'BI', 'Break In', '2018-06-18 00:00:00', '2018-06-18 00:00:00'),
+(4, 'TO', 'Time Out', '2018-06-18 00:00:00', '2018-06-18 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -104,9 +108,9 @@ CREATE TABLE `employees` (
 
 INSERT INTO `employees` (`id`, `first_name`, `middle_name`, `last_name`, `phone`, `email`, `address`, `pos_title`, `password`, `is_admin`, `created_at`, `updated_at`, `is_active`) VALUES
 (1, 'Neil Daryl', 'Reyes', 'Sulit', '0945-362-7267', 'neil@invento.io', '667 Sucat, Muntinlupa City', 'Junior Web Developer', '$2y$10$Ry6TpxJLv9Re4swyS.9FDO.NWy3ettYe4JPhg3F5UqDT3T6XKwhS6', 0, '2018-06-10 11:05:19', '2018-06-10 11:05:19', 1),
-(3, 'Jan Myckel', 'Labayog', 'Perez', '0929-208-6707', 'jan@invento.io', 'Las Piñas City', 'Junior Web Developer', '$2y$10$vNMFaglzTx1TMvmIBWmGweMSpXtmiWTaqXJ7lxXZQJDPAaA9aW0me', 0, '2018-06-13 10:46:02', '2018-06-13 10:46:02', 0),
-(4, 'Jan Myckel', 'Labayog', 'Perez', '0929-208-6707', 'jan1@invento.io', 'Las Piñas City', 'Junior Web Developer', '$2y$10$3Gt5ZCYiFZhnz2SpqbSpp.qWTmsGEDjxWVyk7YCsdLgCU/FMLP8Te', 0, '2018-06-14 18:00:31', '2018-06-14 18:00:31', 0),
-(6, 'Ivan Roir', 'Sermonia', 'Bruselas', '0945-362-7267', 'ivan@invento.io', 'Las Piñas', 'Junior Web Developer', '$2y$10$tQ/TqXwzb/Tmm7L8KvOVg.4BseCYie8mdi3KPvz7.kWyeaTc4n1oO', 0, '2018-06-11 00:04:53', '2018-06-11 00:04:53', 1);
+(2, 'Ivan Roir', '', 'Bruselas', '0945-362-7267', 'ivan@invento.io', 'Las Piñas', 'Junior Web Developer', '$2y$10$dA6.0kpb6W.qUuo2XSI/1.xDDzrJBPX2bfJJWizoso6G7c25KjZsu', 0, '2018-06-19 16:02:55', '2018-06-19 16:02:55', 1),
+(3, 'Jan Myckel', 'Labayog', 'Perez', '0929-208-6707', 'jan@invento.io', 'Las Piñas City', 'Junior Web Developer', '$2y$10$vNMFaglzTx1TMvmIBWmGweMSpXtmiWTaqXJ7lxXZQJDPAaA9aW0me', 0, '2018-06-13 10:46:02', '2018-06-13 10:46:02', 1),
+(4, 'Camille Franchesca', '', 'Cuisa', '0912-345-6789', 'camille@invento.io', 'Las Piñas', 'Web Designer', '$2y$10$lrCXwl1J1gTVWi7lgOBuNehG6cLkdCHPkdG1i9UyYKrrB0UFoumha', 0, '2018-06-19 15:20:42', '2018-06-19 15:20:42', 1);
 
 -- --------------------------------------------------------
 
@@ -160,7 +164,7 @@ ALTER TABLE `revoked_tokens`
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `attendancetype`
@@ -172,7 +176,7 @@ ALTER TABLE `attendancetype`
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `revoked_tokens`

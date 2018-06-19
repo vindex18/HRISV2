@@ -21,12 +21,11 @@ class AuthService {
             return $validation;
             
         $userexists = AuthModel::where('email', '=', strip_tags($req->getParam('email')))->first();
-        //var_dump($userexists); die();
+
         if(is_null($userexists))
-            //var_dump("User does not exists!"); 
             return array('status' => 'val_error', 'msg' => 'Email doesn\'t exists!', 'tk' => '');
         else{
-            if($userexists->is_active==1)
+            if($userexists->is_active)
             {
                 if(password_verify(strip_tags($req->getParam('password')), $userexists->password))
                     //var_dump('User Authentication Succeeded!'); 
@@ -47,8 +46,6 @@ class AuthService {
         $now = new DateTime();
         //$future = new DateTime("now +2 hours");
         $future = new DateTime("now +1 day");
-        //$server = $req->getServerParams();
-        //var_dump($req); die();
         $base62 = new \Tuupola\Base62;
 
         $payload = [

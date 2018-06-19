@@ -19,6 +19,8 @@ class Auth {
     }
 
     function __invoke(Request $req, Response $res, $next){
+        $res->withHeader('Content-type', 'application/json');
+        
         //var_dump('Auth Middleware Invoked!<br>');
         //return $next($req, $res);
          

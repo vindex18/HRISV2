@@ -21,9 +21,6 @@ class EmployeeModel extends Model {
         'address',
         'pos_title',
         'password',
+        'is_active'
     ];
-
-    function attendance(){
-        return $this->hasMany('App\Modules\Attendance\Models\AttendanceModel', 'emp_id', 'id'); //hasMany, 
-    }
 }
